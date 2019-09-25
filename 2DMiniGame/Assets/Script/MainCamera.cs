@@ -23,7 +23,10 @@ public class MainCamera : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         platManag.countPlatform -= 1;
-        
+        if(collision.CompareTag("Platform"))
+        {
+            Debug.Log("ok8p");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -32,8 +35,10 @@ public class MainCamera : MonoBehaviour
         platManag.Begin(1);
         Debug.Log("ok");
         Debug.Log(other.transform.tag);
+
         if (other.transform.tag == "Platform")
         {
+            Debug.Log("ok");
             other.gameObject.SetActive(false);
         }
     }
