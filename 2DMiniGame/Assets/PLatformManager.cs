@@ -6,8 +6,11 @@ public class PLatformManager : MonoBehaviour
 {
     public GameObject platform;
     public Vector3 position;
-    public int count;
-    public int inCount;
+
+    public int countPlatform;
+    public int compt=0;
+    public int rand;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,30 +23,41 @@ public class PLatformManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CreatePlatform(Random.Range(0, 2));
+        if(compt == 2)
+        {
+            rand = 1;
+            compt = 0;
+        }
+        else
+        {
+            rand = Random.Range(1, 3);
+        }
+
+        if (rand ==1)
+        {
+            compt++;
+        }
+        else
+        {
+            compt = 0;
+        }
+
+        CreatePlatform(rand);
     }
 
     public void CreatePlatform(int solution)
     {
-        if (solution == 1)
+        switch (solution)
         {
-            inCount++;
-            if (inCount == 3)
-            {
-                CreatePlatform(0);
-                inCount = 0;
-            }else
-            {
+            case 1:
+                position = position + new Vector3(platform.transform.position.x + 2, Random.Range(-1, 2), 0);
+                Instantiate(platform, position, Quaternion.identity);
+                break;
+            case 2:
                 position = position + new Vector3(platform.transform.position.x + 2, 0, 0);
-            }
-                
-            
+                break;
+            default:
+                break;
         }
-        else
-        {
-            position = position + new Vector3(platform.transform.position.x + 2, Random.Range(-1, 2), 0);
-            Instantiate(platform, position, Quaternion.identity);
-        }
-        
     }
 }
