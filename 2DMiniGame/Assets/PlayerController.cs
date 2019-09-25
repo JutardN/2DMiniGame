@@ -59,11 +59,11 @@ public class PlayerController : MonoBehaviour
             inTheGround = true;
         }
     }
-    //void OnTriggerStay(Collider coll)
-    //{
-    //    if (coll.gameObject.CompareTag("Platform"))
-    //    {
-    //        inTheGround = true;
-    //    }
-    //}
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            inTheGround = false;
+        }
+    }
 }
