@@ -5,6 +5,8 @@ using UnityEngine;
 public class PLatformManager : MonoBehaviour
 {
     public GameObject platform;
+    public GameObject platformBonus;
+    public GameObject platformMalus;
     public Vector3 position;
 
     public int countPlatform = 15;
@@ -56,11 +58,20 @@ public class PLatformManager : MonoBehaviour
 
     public void CreatePlatform(int solution)
     {
+        int myRandom = Random.Range(1, 9);
         switch (solution)
         {
             case 1:
-                position = position + new Vector3(platform.transform.position.x + 2, Random.Range(-1, 2), 0);
-                Instantiate(platform, position, Quaternion.identity);
+                position = position + new Vector3(platform.transform.position.x + 2, Random.Range(-1, 1), 0);
+                if (myRandom == 1)
+                {
+                    Instantiate(platformMalus, position, Quaternion.identity);
+                } else if (myRandom == 3) {
+                    Instantiate(platformBonus, position, Quaternion.identity);
+                }else {
+                    Instantiate(platform, position, Quaternion.identity);
+                }
+                
                 break;
             case 2:
                 position = position + new Vector3(platform.transform.position.x + 2, 0, 0);
