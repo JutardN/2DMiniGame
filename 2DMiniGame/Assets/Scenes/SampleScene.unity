@@ -987,10 +987,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838927982}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd07cda80485ce4296cb100d3e8b23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platManag: {fileID: 208663531}
   player: {fileID: 477156378}
+  left: {fileID: 358871562}
+  right: {fileID: 1785032170}
 --- !u!114 &1838927986
 MonoBehaviour:
   m_ObjectHideFlags: 0
