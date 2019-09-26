@@ -7,12 +7,13 @@ public class PLatformManager : MonoBehaviour
     public GameObject platform;
     public GameObject platformBonus;
     public GameObject platformMalus;
+    public GameObject gold;
     public Vector3 position;
 
     public int countPlatform = 15;
     private int compt=0;
     private int rand;
-    private int i;
+    //private int i;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class PLatformManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Begin(int com)
@@ -46,6 +47,7 @@ public class PLatformManager : MonoBehaviour
             if (rand == 2)
             {
                 compt++;
+                
             }
             else
             {
@@ -70,6 +72,11 @@ public class PLatformManager : MonoBehaviour
                     Instantiate(platformBonus, position, Quaternion.identity);
                 }else {
                     Instantiate(platform, position, Quaternion.identity);
+                    int isGold = Random.Range(1, 3);
+                    if (isGold == 1)
+                    {
+                        Instantiate(gold, position + new Vector3(0, Random.Range(0.7f, 1.5f), 0), Quaternion.identity);
+                    }
                 }
                 
                 break;

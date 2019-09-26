@@ -2,23 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 0.1f;
-
-    public float forceJump = 5f;
     public Rigidbody2D _rigidbody2D;
+    public float speed = 0.1f;
+    public float forceJump = 5f;
+
     public bool canJump;
     public bool inTheGround;
-    public GameObject player;
 
-    private bool gameIsOver = false;
+    public GameObject player;
+    public Text countText;
+    public int count;
+
+    //private bool gameIsOver = false;
 
     void Start()
     {
         _rigidbody2D = this.GetComponent<Rigidbody2D>();
         inTheGround = true;
+        count = 0;
+        CountGoldToText();
     }
 
     private void FixedUpdate()
@@ -33,7 +39,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
 
         if (Input.GetKey("z") && inTheGround)
         {
@@ -50,6 +55,16 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(speed, 0, 0);
         }
+        
+        if (transform.position.y <= -25)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,6 +73,7 @@ public class PlayerController : MonoBehaviour
         {
             inTheGround = true;
         }
+        
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -65,5 +81,18 @@ public class PlayerController : MonoBehaviour
         {
             inTheGround = false;
         }
+        if (collision.gameObject.CompareTag("gold") && collision.transform.position.x < transform.position.x)
+        {
+            count++;
+            collision.gameObject.SetActive(false);
+            //PENSER à réactiver et à placer 2 marqueurs sur l'écran pour prendre juste les X et faire apparaitre et disparaitre en fonction de ca plutot que le bxcol
+            //tricher avec XgoldSprite > Xobjet
+            CountGoldToText();
+        }
+    }
+
+    private void CountGoldToText()
+    {
+        countText.text = "Count: " + count.ToString();
     }
 }
