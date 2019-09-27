@@ -59,11 +59,36 @@ public class PlayerController : MonoBehaviour
             inTheGround = true;
         }
     }
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
             inTheGround = false;
         }
+<<<<<<< Updated upstream
+=======
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("gold"))
+        {
+            count++;
+            collision.gameObject.SetActive(false);
+            //PENSER à réactiver et à placer 2 marqueurs sur l'écran pour prendre juste les X et faire apparaitre et disparaitre en fonction de ca plutot que le bxcol
+            //tricher avec XgoldSprite > Xobjet
+            CountGoldToText();
+        }
+    }
+
+    private void CountGoldToText()
+    {
+        countText.text = "Count: " + count.ToString();
+>>>>>>> Stashed changes
     }
 }
