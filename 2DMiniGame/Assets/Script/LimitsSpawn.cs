@@ -13,7 +13,7 @@ public class LimitsSpawn : MonoBehaviour
     {
         platManag.countPlatform -= 1;
         //if (collision.CompareTag("Platform"))
-        if (collision.transform.position.x <= right.transform.position.x)
+        if (collision.gameObject.CompareTag("Platform"))
         {
             collision.gameObject.SetActive(true);
         }
@@ -26,19 +26,14 @@ public class LimitsSpawn : MonoBehaviour
 
         if (other.CompareTag("Platform"))
         {
-            if (other.transform.position.x <= left.transform.position.x)
-            {
-                other.gameObject.SetActive(false);
-            }
+            other.gameObject.SetActive(false);
+
 
         }
         if (other.CompareTag("gold"))
         {
             Debug.Log("fr");
-            if (other.transform.position.x <= left.transform.position.x)
-            {
-                other.gameObject.SetActive(false);
-            }
+            other.gameObject.SetActive(false);
         }
     }
 }

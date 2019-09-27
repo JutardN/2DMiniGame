@@ -468,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 477156381}
   speed: 0.12
-  forceJump: 5
+  forceJump: 6
   canJump: 0
   inTheGround: 0
   player: {fileID: 477156376}
@@ -513,7 +513,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: 0.034232855}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -524,7 +524,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9999999, y: 0.93079424}
+  m_Size: {x: 0.95, y: 0.95}
   m_EdgeRadius: 0
 --- !u!50 &477156381
 Rigidbody2D:
@@ -928,7 +928,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1838927983}
-  - component: {fileID: 1838927985}
   - component: {fileID: 1838927984}
   - component: {fileID: 1838927986}
   m_Layer: 11
@@ -965,7 +964,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -9, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -976,9 +975,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15, y: 30}
+  m_Size: {x: 1.5, y: 30}
   m_EdgeRadius: 0
---- !u!114 &1838927985
+--- !u!114 &1838927986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -987,24 +986,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838927982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdd07cda80485ce4296cb100d3e8b23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platManag: {fileID: 208663531}
-  player: {fileID: 477156378}
-  left: {fileID: 358871562}
-  right: {fileID: 1785032170}
---- !u!114 &1838927986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838927982}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72af1b767fba7b145aa6fb52e496ca50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platManag: {fileID: 208663531}
-  zonePlayer: {fileID: 477156376}

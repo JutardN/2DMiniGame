@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class P3Bonus : MonoBehaviour
 {
-    public PlayerController player;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +17,4 @@ public class P3Bonus : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //if (collision.gameObject.CompareTag("Player")) {
-
-        //    player.canJump = true;
-        //    player.forceJump = 5f;
-            
-        //}
-    }
 }

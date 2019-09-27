@@ -24,6 +24,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Variant2
       objectReference: {fileID: 0}
+    - target: {fileID: 6271197775364628884, guid: 3141a2ae22d194b4297a8e17ec3508af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4484003203340996848, guid: 3141a2ae22d194b4297a8e17ec3508af,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -67,21 +67,43 @@ public class PlayerController : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
             inTheGround = true;
         }
-        
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.layer == 10)
+        {
+            StartCoroutine(UpperJump(1f));
+            
+        }
+    }
+
+    private IEnumerator UpperJump(float waitTime)
+    {
+        forceJump += 2f;
+        yield return new WaitForSeconds(waitTime);
+        forceJump = 5f;
+    }
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
             inTheGround = false;
         }
-        if (collision.gameObject.CompareTag("gold") && collision.transform.position.x < transform.position.x)
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("gold"))
         {
             count++;
             collision.gameObject.SetActive(false);
