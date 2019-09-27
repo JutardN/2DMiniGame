@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P3Bonus : MonoBehaviour
+public class P1Normal : MonoBehaviour
 {
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         StartCoroutine(Disengaged(2f));
@@ -15,5 +14,4 @@ public class P3Bonus : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         gameObject.SetActive(false);
     }
-
 }

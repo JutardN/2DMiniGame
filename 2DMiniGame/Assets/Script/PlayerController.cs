@@ -75,22 +75,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
         
-        if (collision.gameObject.layer == 10)
-        {
-            StartCoroutine(UpperJump(1f));
+    //    if (collision.gameObject.layer == 10)
+    //    {
+    //        StartCoroutine(UpperJump(1f));
             
-        }
-    }
+    //    }
+    //}
 
-    private IEnumerator UpperJump(float waitTime)
-    {
-        forceJump += 2f;
-        yield return new WaitForSeconds(waitTime);
-        forceJump = 5f;
-    }
+    //private IEnumerator UpperJump(float waitTime)
+    //{
+    //    forceJump += 2f;
+    //    yield return new WaitForSeconds(waitTime);
+    //    forceJump = 5f;
+    //}
     
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("gold"))
         {
