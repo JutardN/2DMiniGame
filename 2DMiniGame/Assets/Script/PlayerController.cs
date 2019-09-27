@@ -13,11 +13,21 @@ public class PlayerController : MonoBehaviour
     public bool canJump;
     public bool inTheGround;
 
+    public Canvas win;
+    public Canvas lose;
+
+
     public GameObject player;
+    public PLatformManager platManag;
     public Text countText;
     public int count;
 
     //private bool gameIsOver = false;
+    private void Awake()
+    {
+        win.gameObject.SetActive(false);
+        lose.gameObject.SetActive(false);
+    }
 
     void Start()
     {
@@ -56,16 +66,46 @@ public class PlayerController : MonoBehaviour
             transform.Translate(speed, 0, 0);
         }
         
-        if (transform.position.y <= -25)
+        if (transform.position.y <= platManag.position.y -10)
         {
-            Die();
+            lose.gameObject.SetActive(true);
+
+            StartCoroutine(Defeat());
         }
+        if (count >= 40)
+        {
+            win.gameObject.SetActive(true);
+
+            StartCoroutine(Win());
+        }
+    }
+
+    IEnumerator Defeat()
+    {
+
+        yield return new WaitForSeconds(0.7f);
+        Die();
     }
 
     private void Die()
     {
+
         SceneManager.LoadScene("SampleScene");
     }
+
+    IEnumerator Win()
+    {
+
+        yield return new WaitForSeconds(1f);
+        Winner();
+    }
+
+    private void Winner()
+    {
+
+        SceneManager.LoadScene("SampleScene");
+    }
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {

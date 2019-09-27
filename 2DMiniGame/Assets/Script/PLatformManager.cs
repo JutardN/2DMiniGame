@@ -68,9 +68,9 @@ public class PLatformManager : MonoBehaviour
                     Instantiate(platformMalus, position, Quaternion.identity);
                 } else if (myRandom == 3) {
                     Instantiate(platformBonus, position, Quaternion.identity);
-                    Instantiate(gold, position + new Vector3(-0.4f, 0.7f, 0), Quaternion.identity);
+                    Instantiate(gold, position + new Vector3(-0.5f, 0.7f, 0), Quaternion.identity);
                     Instantiate(gold, position + new Vector3(0, 1.2f, 0), Quaternion.identity);
-                    Instantiate(gold, position + new Vector3(0.4f, 0.7f, 0), Quaternion.identity);
+                    Instantiate(gold, position + new Vector3(0.5f, 0.7f, 0), Quaternion.identity);
                 }
                 else {
                     Instantiate(platform, position, Quaternion.identity);
