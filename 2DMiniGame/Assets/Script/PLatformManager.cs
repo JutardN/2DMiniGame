@@ -22,12 +22,6 @@ public class PLatformManager : MonoBehaviour
         Begin(countPlatform);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void Begin(int com)
     {
         for (int i = 0; i <= com; i++)
@@ -39,7 +33,7 @@ public class PLatformManager : MonoBehaviour
             }
             else
             {
-                rand = Random.Range(1, 3);
+                rand = Rand(1,3);
             }
 
             if (rand == 2)
@@ -58,11 +52,11 @@ public class PLatformManager : MonoBehaviour
 
     public void CreatePlatform(int solution)
     {
-        int myRandom = Random.Range(1, 9);
+        int myRandom = Rand(1,9);
         switch (solution)
         {
             case 1:
-                position = position + new Vector3(platform.transform.position.x + 2, Random.Range(-1, 2), 0);
+                position = position + new Vector3(platform.transform.position.x + 2, Rand(-1,2), 0);
                 GenerateBlock(myRandom);
                 
                 break;
@@ -71,7 +65,7 @@ public class PLatformManager : MonoBehaviour
                 break;
 
             case 3:
-                position = position + new Vector3(platform.transform.position.x + 2, Random.Range(-1, 1), 0);
+                position = position + new Vector3(platform.transform.position.x + 2, Rand(-1,1), 0);
                 GenerateBlock(myRandom);
                 break;
 
@@ -97,11 +91,17 @@ public class PLatformManager : MonoBehaviour
         else
         {
             Instantiate(platform, position, Quaternion.identity);
-            int isGold = Random.Range(1, 3);
+            int isGold = Rand(1,3);
             if (isGold == 1)
             {
                 Instantiate(gold, position + new Vector3(0, Random.Range(0.7f, 1.7f), 0), Quaternion.identity);
             }
         }
+    }
+
+    public int Rand(int min,int max)
+    {
+        
+        return Random.Range(min,max);
     }
 }

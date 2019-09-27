@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public Canvas win;
     public Canvas lose;
 
+    public GameObject ennemy;
     private bool ennemyTouch;
     public GameObject player;
     public PLatformManager platManag;
@@ -73,10 +74,10 @@ public class PlayerController : MonoBehaviour
 
             StartCoroutine(Defeat());
         }
-        if (count >= totalWin)
+        if (count >= totalWin && !ennemyTouch)
         {
+            ennemy.SetActive(false);
             win.gameObject.SetActive(true);
-
             StartCoroutine(Win());
         }
     }
