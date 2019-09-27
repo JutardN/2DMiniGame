@@ -472,6 +472,7 @@ MonoBehaviour:
   canJump: 0
   inTheGround: 0
   player: {fileID: 477156376}
+  platManag: {fileID: 208663531}
   countText: {fileID: 309528366}
   count: 0
 --- !u!61 &477156379

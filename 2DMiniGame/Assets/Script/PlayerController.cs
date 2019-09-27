@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public bool inTheGround;
 
     public GameObject player;
+    public PLatformManager platManag;
     public Text countText;
     public int count;
 
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
             transform.Translate(speed, 0, 0);
         }
         
-        if (transform.position.y <= -25)
+        if (transform.position.y <= platManag.position.y - 10)
         {
             Die();
         }

@@ -77,7 +77,7 @@ public class PLatformManager : MonoBehaviour
                     int isGold = Random.Range(1, 3);
                     if (isGold == 1)
                     {
-                        Instantiate(gold, position + new Vector3(0, Random.Range(0.7f, 1.5f), 0), Quaternion.identity);
+                        Instantiate(gold, position + new Vector3(0, Random.Range(0.7f, 1.7f), 0), Quaternion.identity);
                     }
                 }
                 
