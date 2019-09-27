@@ -12,7 +12,6 @@ public class LimitsSpawn : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         platManag.countPlatform -= 1;
-        //if (collision.CompareTag("Platform"))
         if (collision.gameObject.CompareTag("Platform"))
         {
             collision.gameObject.SetActive(true);

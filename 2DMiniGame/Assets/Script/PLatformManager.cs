@@ -13,14 +13,12 @@ public class PLatformManager : MonoBehaviour
     public int countPlatform = 15;
     private int compt=0;
     private int rand;
-    //private int i;
 
     // Start is called before the first frame update
     void Start()
     {
         position = new Vector3(platform.transform.position.x, 0, 0);
         Instantiate(platform, position, Quaternion.identity);
-        //position = new Vector3(platform.transform.position.x + 2, 0, 0);
         Begin(countPlatform);
     }
 
@@ -70,7 +68,11 @@ public class PLatformManager : MonoBehaviour
                     Instantiate(platformMalus, position, Quaternion.identity);
                 } else if (myRandom == 3) {
                     Instantiate(platformBonus, position, Quaternion.identity);
-                }else {
+                    Instantiate(gold, position + new Vector3(-0.4f, 0.7f, 0), Quaternion.identity);
+                    Instantiate(gold, position + new Vector3(0, 1.2f, 0), Quaternion.identity);
+                    Instantiate(gold, position + new Vector3(0.4f, 0.7f, 0), Quaternion.identity);
+                }
+                else {
                     Instantiate(platform, position, Quaternion.identity);
                     int isGold = Random.Range(1, 3);
                     if (isGold == 1)

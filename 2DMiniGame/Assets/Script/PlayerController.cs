@@ -74,23 +74,6 @@ public class PlayerController : MonoBehaviour
             inTheGround = true;
         }
     }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-        
-    //    if (collision.gameObject.layer == 10)
-    //    {
-    //        StartCoroutine(UpperJump(1f));
-            
-    //    }
-    //}
-
-    //private IEnumerator UpperJump(float waitTime)
-    //{
-    //    forceJump += 2f;
-    //    yield return new WaitForSeconds(waitTime);
-    //    forceJump = 5f;
-    //}
     
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -107,8 +90,6 @@ public class PlayerController : MonoBehaviour
         {
             count++;
             collision.gameObject.SetActive(false);
-            //PENSER à réactiver et à placer 2 marqueurs sur l'écran pour prendre juste les X et faire apparaitre et disparaitre en fonction de ca plutot que le bxcol
-            //tricher avec XgoldSprite > Xobjet
             CountGoldToText();
         }
     }
