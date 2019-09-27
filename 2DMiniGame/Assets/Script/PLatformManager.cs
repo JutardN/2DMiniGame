@@ -62,31 +62,46 @@ public class PLatformManager : MonoBehaviour
         switch (solution)
         {
             case 1:
-                position = position + new Vector3(platform.transform.position.x + 2, Random.Range(-1, 1), 0);
-                if (myRandom == 1)
-                {
-                    Instantiate(platformMalus, position, Quaternion.identity);
-                } else if (myRandom == 3) {
-                    Instantiate(platformBonus, position, Quaternion.identity);
-                    Instantiate(gold, position + new Vector3(-0.5f, 0.7f, 0), Quaternion.identity);
-                    Instantiate(gold, position + new Vector3(0, 1.2f, 0), Quaternion.identity);
-                    Instantiate(gold, position + new Vector3(0.5f, 0.7f, 0), Quaternion.identity);
-                }
-                else {
-                    Instantiate(platform, position, Quaternion.identity);
-                    int isGold = Random.Range(1, 3);
-                    if (isGold == 1)
-                    {
-                        Instantiate(gold, position + new Vector3(0, Random.Range(0.7f, 1.7f), 0), Quaternion.identity);
-                    }
-                }
+                position = position + new Vector3(platform.transform.position.x + 2, Random.Range(-1, 2), 0);
+                GenerateBlock(myRandom);
                 
                 break;
             case 2:
                 position = position + new Vector3(platform.transform.position.x + 2, 0, 0);
                 break;
+
+            case 3:
+                position = position + new Vector3(platform.transform.position.x + 2, Random.Range(-1, 1), 0);
+                GenerateBlock(myRandom);
+                break;
+
             default:
                 break;
+        }
+
+    }
+
+    public void GenerateBlock(int myRandom)
+    {
+        if (myRandom == 1)
+        {
+            Instantiate(platformMalus, position, Quaternion.identity);
+        }
+        else if (myRandom == 3)
+        {
+            Instantiate(platformBonus, position, Quaternion.identity);
+            Instantiate(gold, position + new Vector3(-0.5f, 0.7f, 0), Quaternion.identity);
+            Instantiate(gold, position + new Vector3(0, 1.2f, 0), Quaternion.identity);
+            Instantiate(gold, position + new Vector3(0.5f, 0.7f, 0), Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(platform, position, Quaternion.identity);
+            int isGold = Random.Range(1, 3);
+            if (isGold == 1)
+            {
+                Instantiate(gold, position + new Vector3(0, Random.Range(0.7f, 1.7f), 0), Quaternion.identity);
+            }
         }
     }
 }

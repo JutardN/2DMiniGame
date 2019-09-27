@@ -6,6 +6,7 @@ public class EnnemyManager : MonoBehaviour
 {
 
     public GameObject player;
+    public PlayerController myPlayer;
     private float offset;
 
     // Start is called before the first frame update
@@ -17,7 +18,15 @@ public class EnnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0.08f, 0, 0);
+        if (myPlayer.count > 30)
+        {
+            transform.Translate(0.11f, 0, 0);
+        }
+        else
+        {
+            transform.Translate(0.08f, 0, 0);
+        }
+
     }
 
     private void LateUpdate()

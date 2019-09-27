@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public PLatformManager platManag;
     public Text countText;
     public int count;
+    public int totalWin = 40;
 
     //private bool gameIsOver = false;
     private void Awake()
@@ -72,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
             StartCoroutine(Defeat());
         }
-        if (count >= 40)
+        if (count >= totalWin)
         {
             win.gameObject.SetActive(true);
 
