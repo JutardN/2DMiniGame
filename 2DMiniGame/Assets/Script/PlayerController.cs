@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public Canvas win;
     public Canvas lose;
 
-
+    private bool ennemyTouch;
     public GameObject player;
     public PLatformManager platManag;
     public Text countText;
@@ -66,14 +66,13 @@ public class PlayerController : MonoBehaviour
             transform.Translate(speed, 0, 0);
         }
         
-        if (transform.position.y <= platManag.position.y -10)
+        if (transform.position.y <= platManag.position.y -10 || ennemyTouch)
         {
             lose.gameObject.SetActive(true);
 
             StartCoroutine(Defeat());
         }
         if (count >= 40)
-        if (transform.position.y <= platManag.position.y - 10)
         {
             win.gameObject.SetActive(true);
 
@@ -127,7 +126,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("gold"))
+        if (collision.gameObject.CompareTag("ennemy"))
+        {
+            ennemyTouch = true;
+        }
+
+            if (collision.gameObject.CompareTag("gold"))
         {
             count++;
             collision.gameObject.SetActive(false);

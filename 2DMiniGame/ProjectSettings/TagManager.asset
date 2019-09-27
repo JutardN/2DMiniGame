@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - gold
+  - ennemy
   layers:
   - Default
   - TransparentFX
