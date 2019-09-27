@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Defeat());
         }
         if (count >= 40)
+        if (transform.position.y <= platManag.position.y - 10)
         {
             win.gameObject.SetActive(true);
 
