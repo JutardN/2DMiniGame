@@ -19,7 +19,7 @@ public class P2Malus : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        StartCoroutine(Disengaged(2));
+        StartCoroutine(Disengaged(timeLess));
     }
 
     private IEnumerator Disengaged(float waitTime)

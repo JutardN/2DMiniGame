@@ -151,8 +151,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 6271197775364628884, guid: 3141a2ae22d194b4297a8e17ec3508af,
     type: 3}
+  platformListe: []
+  platformBonus: {fileID: 2725829764632773054, guid: b506b664d7107334bbc013901ad65905,
+    type: 3}
+  platformMalus: {fileID: 8283349723788069318, guid: 91f19f22eb29f8241b9f1805fd26178d,
+    type: 3}
   position: {x: 0, y: 0, z: 0}
-  countPlatform: 15
+  countPlatform: 30
+  timeBeforeSpawn: 0.2
 --- !u!4 &208663532
 Transform:
   m_ObjectHideFlags: 0
@@ -385,6 +391,50 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!1 &478263144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 478263146}
+  - component: {fileID: 478263145}
+  m_Layer: 0
+  m_Name: PlatformDestroyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &478263145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478263144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2836426245d27c47b2afac063993b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plat: {fileID: 208663531}
+--- !u!4 &478263146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478263144}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 68.79893, y: 14.400212, z: -50.71875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1838927983
 Transform:
   m_ObjectHideFlags: 0
